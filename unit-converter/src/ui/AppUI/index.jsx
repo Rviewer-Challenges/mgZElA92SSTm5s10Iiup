@@ -13,7 +13,7 @@ const options = [
   },
 ];
 
-function AppUI() {
+function AppUI({ inputValue, setInputValue }) {
   return (
     <div className="app-ui">
       <Container customClasses="is-dark with-title container--unit-converter nes-container">
@@ -30,7 +30,7 @@ function AppUI() {
         <Container customClasses="container--operations">
           <Container customClasses="container--select-input">
             <Select options={options} />
-            <Input type="number" />
+            <Input inputValue={inputValue} type="number" />
           </Container>
           <Container customClasses="container--switch-btn">
             <Button customClasses="button--switch nes-btn" />
