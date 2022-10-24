@@ -2,12 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Select.scss';
 
-function Select({ options }) {
+function Select({ options, onChangeFunc, unit }) {
   return (
     <div className="nes-select">
-      <select className="custom-select" id="default_select">
+      <select
+        className="custom-select"
+        id="default_select"
+        value={unit}
+        onChange={(e) => onChangeFunc(e.target.value)}
+      >
         {options.map((option) => (
-          <option value={option.value}>{option.name}</option>
+          <option value={option.value}>{option.label}</option>
         ))}
       </select>
     </div>
@@ -16,6 +21,8 @@ function Select({ options }) {
 
 Select.propTypes = {
   options: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
+  onChangeFunc: PropTypes.func.isRequired,
+  unit: PropTypes.string.isRequired,
 };
 
 export default Select;
