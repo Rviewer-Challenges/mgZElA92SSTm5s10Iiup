@@ -5,7 +5,7 @@ import AppUI from './ui/AppUI';
 
 function App() {
   const [inputValue, setInputValue] = useState('');
-  // const [outputValue, setOutputValue] = useState('');
+  const [outputValue, setOutputValue] = useState('');
   const [inputUnit, setInputUnit] = useState(tempOptions[0].value);
   const [outputUnit, setOutputUnit] = useState(tempOptions[1].value);
   // const [measure, setMeasure] = useState('temperature');
@@ -24,6 +24,8 @@ function App() {
       setInputUnit={setInputUnit}
       inputValue={inputValue}
       setInputValue={setInputValue}
+      outputValue={outputValue}
+      setOutputValue={setOutputValue}
       outputUnit={outputUnit}
       setOutputUnit={setOutputUnit}
       handleClickSwitch={handleClickSwitch}

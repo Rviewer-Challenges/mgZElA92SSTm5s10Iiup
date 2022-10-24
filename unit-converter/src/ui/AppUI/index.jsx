@@ -16,6 +16,7 @@ function AppUI({
   outputUnit,
   setOutputUnit,
   handleClickSwitch,
+  outputValue,
 }) {
   return (
     <div className="app-ui">
@@ -55,7 +56,7 @@ function AppUI({
               unit={outputUnit}
               onChangeFunc={setOutputUnit}
             />
-            <Input type="number" />
+            <Input type="number" disabled inputValue={outputValue} />
           </Container>
         </Container>
       </Container>
@@ -63,10 +64,6 @@ function AppUI({
   );
 }
 
-// AppUI.defaultProps = {
-//   inputValue: PropTypes.string,
-//   setInputValue: PropTypes.function
-// };
 AppUI.propTypes = {
   inputValue: PropTypes.string.isRequired,
   setInputValue: PropTypes.func.isRequired,
@@ -75,5 +72,6 @@ AppUI.propTypes = {
   outputUnit: PropTypes.string.isRequired,
   setOutputUnit: PropTypes.func.isRequired,
   handleClickSwitch: PropTypes.func.isRequired,
+  outputValue: PropTypes.string.isRequired,
 };
 export default AppUI;
