@@ -4,4 +4,11 @@
   background-image: url(../assets//images/pixel-background.png);
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 100px 0;
+}
+
+@media (min-width: 1000px) {
+  .app-ui {
+    display: flex;
+  }
 }

@@ -3,15 +3,7 @@ import PropTypes from 'prop-types';
 import './Container.scss';
 
 function Container({ children, customClasses }) {
-  return (
-    <div
-      className={
-        customClasses ? `${customClasses} nes-container` : `nes-container`
-      }
-    >
-      {children}
-    </div>
-  );
+  return <div className={customClasses}>{children}</div>;
 }
 Container.defaultProps = {
   children: null,
