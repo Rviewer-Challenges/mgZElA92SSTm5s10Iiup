@@ -25,8 +25,18 @@ export function toKelvin(temp, unit) {
     case 'fahrenheit':
       return Number(((temp - 32) * (5 / 9) + 273.15).toFixed(2));
     case 'celsius':
-      return Number((temp + 273.15).toFixed(2));
+      return Number((Number(temp) + 273.15).toFixed(2));
     default:
       return console.error('Error in toKelvin');
   }
+}
+
+export function temperatureConversion(outputUnit, inputValue, inputUnit) {
+  if (outputUnit === 'celsius') {
+    return toCelsius(inputValue, inputUnit);
+  }
+  if (outputUnit === 'fahrenheit') {
+    return toFahrenheit(inputValue, inputUnit);
+  }
+  return toKelvin(inputValue, inputUnit);
 }

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import tempOptions from './utils/selectOptionsHelper';
+import { temperatureConversion } from './utils/temperatureHelpers';
 
 import AppUI from './ui/AppUI';
 
@@ -8,7 +9,8 @@ function App() {
   const [outputValue, setOutputValue] = useState('');
   const [inputUnit, setInputUnit] = useState(tempOptions[0].value);
   const [outputUnit, setOutputUnit] = useState(tempOptions[1].value);
-  // const [measure, setMeasure] = useState('temperature');
+  // eslint-disable-next-line no-unused-vars
+  const [measure, setMeasure] = useState('temperature');
 
   const handleClickSwitch = () => {
     const newInputUnit = outputUnit;
@@ -17,6 +19,30 @@ function App() {
     setInputUnit(newInputUnit);
     setOutputUnit(newOutputUnit);
   };
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+
+    // if (measure === 'temperature') {
+    //   if (outputUnit === 'celsius') {
+    //     setOutputValue(toCelsius(inputValue, inputUnit));
+    //   } else if (outputUnit === 'fahrenheit') {
+    //     setOutputValue(toFahrenheit(inputValue, inputUnit));
+    //   } else {
+    //     console.log(inputValue, inputUnit);
+    //     setOutputValue(toKelvin(inputValue, inputUnit));
+    //   }
+    // }
+  };
+  useEffect(() => {
+    if (measure === 'temperature') {
+      if (inputValue) {
+        setOutputValue(
+          temperatureConversion(outputUnit, inputValue, inputUnit)
+        );
+      }
+    }
+  }, [inputValue, inputUnit, outputUnit, measure]);
 
   return (
     <AppUI
@@ -29,6 +55,7 @@ function App() {
       outputUnit={outputUnit}
       setOutputUnit={setOutputUnit}
       handleClickSwitch={handleClickSwitch}
+      handleInputChange={handleInputChange}
     />
   );
 }

@@ -10,13 +10,13 @@ import tempOptions from '../../utils/selectOptionsHelper';
 
 function AppUI({
   inputValue,
-  setInputValue,
   inputUnit,
   setInputUnit,
   outputUnit,
   setOutputUnit,
   handleClickSwitch,
   outputValue,
+  handleInputChange,
 }) {
   return (
     <div className="app-ui">
@@ -40,7 +40,7 @@ function AppUI({
             />
             <Input
               inputValue={inputValue}
-              setInputValue={setInputValue}
+              handlerOnChange={handleInputChange}
               type="number"
             />
           </Container>
@@ -66,12 +66,13 @@ function AppUI({
 
 AppUI.propTypes = {
   inputValue: PropTypes.string.isRequired,
-  setInputValue: PropTypes.func.isRequired,
+  // setInputValue: PropTypes.func.isRequired,
   inputUnit: PropTypes.string.isRequired,
   setInputUnit: PropTypes.func.isRequired,
   outputUnit: PropTypes.string.isRequired,
   setOutputUnit: PropTypes.func.isRequired,
   handleClickSwitch: PropTypes.func.isRequired,
   outputValue: PropTypes.string.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
 };
 export default AppUI;
