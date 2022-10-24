@@ -15,6 +15,7 @@ function AppUI({
   setInputUnit,
   outputUnit,
   setOutputUnit,
+  handleClickSwitch,
 }) {
   return (
     <div className="app-ui">
@@ -43,7 +44,10 @@ function AppUI({
             />
           </Container>
           <Container customClasses="container--switch-btn">
-            <Button customClasses="button--switch nes-btn" />
+            <Button
+              onClickFunc={handleClickSwitch}
+              customClasses="button--switch nes-btn"
+            />
           </Container>
           <Container customClasses="container--select-input">
             <Select
@@ -70,5 +74,6 @@ AppUI.propTypes = {
   setInputUnit: PropTypes.func.isRequired,
   outputUnit: PropTypes.string.isRequired,
   setOutputUnit: PropTypes.func.isRequired,
+  handleClickSwitch: PropTypes.func.isRequired,
 };
 export default AppUI;

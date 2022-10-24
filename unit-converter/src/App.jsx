@@ -8,6 +8,15 @@ function App() {
   // const [outputValue, setOutputValue] = useState('');
   const [inputUnit, setInputUnit] = useState(tempOptions[0].value);
   const [outputUnit, setOutputUnit] = useState(tempOptions[1].value);
+  // const [measure, setMeasure] = useState('temperature');
+
+  const handleClickSwitch = () => {
+    const newInputUnit = outputUnit;
+    const newOutputUnit = inputUnit;
+
+    setInputUnit(newInputUnit);
+    setOutputUnit(newOutputUnit);
+  };
 
   return (
     <AppUI
@@ -17,6 +26,7 @@ function App() {
       setInputValue={setInputValue}
       outputUnit={outputUnit}
       setOutputUnit={setOutputUnit}
+      handleClickSwitch={handleClickSwitch}
     />
   );
 }
