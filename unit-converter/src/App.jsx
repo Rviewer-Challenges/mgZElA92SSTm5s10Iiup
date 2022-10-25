@@ -15,9 +15,13 @@ function App() {
 
   const handleClickTempButton = () => {
     setMeasure('temperature');
+    setInputValue('');
+    setOutputValue('');
   };
   const handleClickLengthButton = () => {
     setMeasure('length');
+    setInputValue('');
+    setOutputValue('');
   };
 
   const handleClickUnitSwitch = () => {
@@ -26,9 +30,18 @@ function App() {
 
     setInputUnit(newInputUnit);
     setOutputUnit(newOutputUnit);
+
+    setInputValue('');
+    setOutputValue('');
   };
 
   const handleInputChange = (e) => {
+    if (e.target.value < 0 && measure === 'length') return;
+
+    if (e.target.value < 0 && inputUnit === 'kelvin') return;
+    if (e.target.value < -273.15 && inputUnit === 'celsius') return;
+    if (e.target.value < -459.67 && inputUnit === 'fahrenheit') return;
+
     setInputValue(e.target.value);
   };
 

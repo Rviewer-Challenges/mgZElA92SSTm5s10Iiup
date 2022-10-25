@@ -12,6 +12,6 @@ export const lengthOptions = [
   { value: 'decameter', label: 'Decameter' },
   { value: 'hectometer', label: 'Hectometer' },
   { value: 'kilometer', label: 'Kilometer' },
-  { value: 'Inch', label: 'Inch' },
+  { value: 'inch', label: 'Inch' },
   { value: 'mile', label: 'Mile' },
 ];
