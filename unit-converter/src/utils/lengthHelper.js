@@ -49,3 +49,8 @@ export function fromMeter(number, unit) {
       return console.error('Error in fromMeter');
   }
 }
+
+export function lengthConversion(outputUnit, inputValue, inputUnit) {
+  const toMeterValue = toMeter(inputValue, inputUnit);
+  return fromMeter(toMeterValue, outputUnit);
+}

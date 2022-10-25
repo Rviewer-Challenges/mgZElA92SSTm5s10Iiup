@@ -6,7 +6,6 @@ import Select from '../Select';
 import Title from '../Title';
 import Input from '../Input';
 import Button from '../Button';
-import tempOptions from '../../utils/selectOptionsHelper';
 
 function AppUI({
   inputValue,
@@ -14,27 +13,36 @@ function AppUI({
   setInputUnit,
   outputUnit,
   setOutputUnit,
-  handleClickSwitch,
+  handleClickUnitSwitch,
   outputValue,
   handleInputChange,
+  handleClickTempButton,
+  handleClickLengthButton,
+  selectOptions,
 }) {
   return (
     <div className="app-ui">
       <Container customClasses="is-dark with-title container--unit-converter nes-container">
         <Title text="Unit Converter" customClasses="title--unit-converter" />
         <Container customClasses="container--measure-type">
-          <Button customClasses="nes-btn button--measure-type">
+          <Button
+            onClickFunc={handleClickTempButton}
+            customClasses="nes-btn button--measure-type"
+          >
             <i className="nes-kirby" />
           </Button>
 
-          <Button customClasses="nes-btn button--measure-type">
+          <Button
+            onClickFunc={handleClickLengthButton}
+            customClasses="nes-btn button--measure-type"
+          >
             <i className="nes-kirby" />
           </Button>
         </Container>
         <Container customClasses="container--operations">
           <Container customClasses="container--select-input">
             <Select
-              options={tempOptions}
+              options={selectOptions}
               unit={inputUnit}
               onChangeFunc={setInputUnit}
             />
@@ -46,13 +54,13 @@ function AppUI({
           </Container>
           <Container customClasses="container--switch-btn">
             <Button
-              onClickFunc={handleClickSwitch}
+              onClickFunc={handleClickUnitSwitch}
               customClasses="button--switch nes-btn"
             />
           </Container>
           <Container customClasses="container--select-input">
             <Select
-              options={tempOptions}
+              options={selectOptions}
               unit={outputUnit}
               onChangeFunc={setOutputUnit}
             />
@@ -66,13 +74,16 @@ function AppUI({
 
 AppUI.propTypes = {
   inputValue: PropTypes.string.isRequired,
-  // setInputValue: PropTypes.func.isRequired,
   inputUnit: PropTypes.string.isRequired,
   setInputUnit: PropTypes.func.isRequired,
   outputUnit: PropTypes.string.isRequired,
   setOutputUnit: PropTypes.func.isRequired,
-  handleClickSwitch: PropTypes.func.isRequired,
+  handleClickUnitSwitch: PropTypes.func.isRequired,
   outputValue: PropTypes.string.isRequired,
   handleInputChange: PropTypes.func.isRequired,
+  handleClickTempButton: PropTypes.func.isRequired,
+  handleClickLengthButton: PropTypes.func.isRequired,
+  selectOptions: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string))
+    .isRequired,
 };
 export default AppUI;

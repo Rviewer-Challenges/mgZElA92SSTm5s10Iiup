@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import tempOptions from './utils/selectOptionsHelper';
+import { tempOptions, lengthOptions } from './utils/selectOptionsHelper';
 import { temperatureConversion } from './utils/temperatureHelpers';
+import { lengthConversion } from './utils/lengthHelper';
 
 import AppUI from './ui/AppUI';
 
 function App() {
   const [inputValue, setInputValue] = useState('');
   const [outputValue, setOutputValue] = useState('');
-  const [inputUnit, setInputUnit] = useState(tempOptions[0].value);
-  const [outputUnit, setOutputUnit] = useState(tempOptions[1].value);
-  // eslint-disable-next-line no-unused-vars
+  const [inputUnit, setInputUnit] = useState('');
+  const [outputUnit, setOutputUnit] = useState('');
+  const [selectOptions, setSelectOptions] = useState(tempOptions);
   const [measure, setMeasure] = useState('temperature');
 
-  const handleClickSwitch = () => {
+  const handleClickTempButton = () => setMeasure('temperature');
+  const handleClickLengthButton = () => setMeasure('length');
+
+  const handleClickUnitSwitch = () => {
     const newInputUnit = outputUnit;
     const newOutputUnit = inputUnit;
 
@@ -22,25 +26,33 @@ function App() {
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-
-    // if (measure === 'temperature') {
-    //   if (outputUnit === 'celsius') {
-    //     setOutputValue(toCelsius(inputValue, inputUnit));
-    //   } else if (outputUnit === 'fahrenheit') {
-    //     setOutputValue(toFahrenheit(inputValue, inputUnit));
-    //   } else {
-    //     console.log(inputValue, inputUnit);
-    //     setOutputValue(toKelvin(inputValue, inputUnit));
-    //   }
-    // }
   };
+
   useEffect(() => {
+    setInputValue('');
+    setOutputValue('');
     if (measure === 'temperature') {
-      if (inputValue) {
-        setOutputValue(
-          temperatureConversion(outputUnit, inputValue, inputUnit)
-        );
-      }
+      setSelectOptions(tempOptions);
+      setInputUnit(tempOptions[0].value);
+      setOutputUnit(tempOptions[1].value);
+    } else {
+      setSelectOptions(lengthOptions);
+      setInputUnit(lengthOptions[0].value);
+      setOutputUnit(lengthOptions[1].value);
+    }
+  }, [measure]);
+
+  useEffect(() => {
+    if (measure === 'temperature' && inputValue) {
+      setOutputValue(
+        temperatureConversion(outputUnit, inputValue, inputUnit).toString()
+      );
+    } else if (measure === 'length' && inputValue) {
+      // eslint-disable-next-line no-debugger
+      debugger;
+      setOutputValue(
+        lengthConversion(outputUnit, inputValue, inputUnit).toString()
+      );
     }
   }, [inputValue, inputUnit, outputUnit, measure]);
 
@@ -54,8 +66,11 @@ function App() {
       setOutputValue={setOutputValue}
       outputUnit={outputUnit}
       setOutputUnit={setOutputUnit}
-      handleClickSwitch={handleClickSwitch}
+      handleClickUnitSwitch={handleClickUnitSwitch}
       handleInputChange={handleInputChange}
+      handleClickLengthButton={handleClickLengthButton}
+      handleClickTempButton={handleClickTempButton}
+      selectOptions={selectOptions}
     />
   );
 }
