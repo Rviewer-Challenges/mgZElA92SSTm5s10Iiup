@@ -19,7 +19,6 @@
     9px 9px, 12px 9px, 15px 9px, 18px 9px, 6px 12px, 9px 12px, 12px 12px,
     15px 12px, 18px 12px, 9px 15px, 12px 15px, 15px 15px, 12px 18px;
   position: absolute;
-
   pointer-events: none;
   content: '';
   bottom: 10%;
@@ -48,6 +47,7 @@
 
 .button--measure-type {
   margin-bottom: 2rem;
+  width: 200px;
 }
 
 .button--measure-type-focus {

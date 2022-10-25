@@ -31,7 +31,7 @@ function AppUI({
             customClasses="nes-btn button--measure-type"
             measure={measure}
           >
-            <i className="nes-kirby" />
+            Temperature
           </Button>
 
           <Button
@@ -39,7 +39,7 @@ function AppUI({
             customClasses="nes-btn button--measure-type"
             measure={measure}
           >
-            <i className="nes-kirby" />
+            Length
           </Button>
         </Container>
         <Container customClasses="container--operations">
