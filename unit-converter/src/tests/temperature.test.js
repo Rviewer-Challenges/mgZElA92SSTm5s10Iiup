@@ -1,4 +1,9 @@
-import { toFahrenheit, toCelsius, toKelvin } from '../utils/temperatureHelpers';
+import {
+  toFahrenheit,
+  toCelsius,
+  toKelvin,
+  temperatureConversion,
+} from '../utils/temperatureHelpers';
 
 describe('to kelvin', () => {
   test('from celsius', () => {
@@ -14,7 +19,7 @@ describe('to celsius', () => {
     expect(toCelsius(-15.555, 'fahrenheit')).toBe(-26.42);
   });
   test('from kelvin', () => {
-    expect(toCelsius(1, 'kelvin')).toBe(-272);
+    expect(toCelsius(1, 'kelvin')).toBe(-272.15);
   });
 });
 
@@ -24,5 +29,14 @@ describe('to fahrenheit', () => {
   });
   test('from kelvin', () => {
     expect(toFahrenheit(300.15, 'kelvin')).toBe(80.6);
+  });
+});
+
+describe('test temperature conversion', () => {
+  test('from celsius to fahrenheit', () => {
+    expect(temperatureConversion('fahrenheit', -21.53, 'celsius')).toBe(-6.75);
+  });
+  test('from fahrenheit to kelvin', () => {
+    expect(temperatureConversion('kelvin', -21.53, 'fahrenheit')).toBe(243.41);
   });
 });

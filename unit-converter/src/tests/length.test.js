@@ -1,4 +1,4 @@
-import { toMeter, fromMeter } from '../utils/lengthHelper';
+import { toMeter, fromMeter, lengthConversion } from '../utils/lengthHelper';
 
 describe('toMeter', () => {
   test('from mm', () => {
@@ -57,5 +57,17 @@ describe('fromMeter', () => {
   });
   test('negative', () => {
     expect(fromMeter(-0.1, 'negative')).toBe('Error');
+  });
+});
+
+describe('all length conversion', () => {
+  test('very small values equal to 0', () => {
+    expect(lengthConversion('mile', 0.123, 'millimetre')).toBe(0);
+  });
+  test('small values', () => {
+    expect(lengthConversion('kilometer', 22, 'centimeter')).toBe(0.0002);
+  });
+  test('big values', () => {
+    expect(lengthConversion('centimeter', 5400, 'kilometer')).toBe(5.4e8);
   });
 });
