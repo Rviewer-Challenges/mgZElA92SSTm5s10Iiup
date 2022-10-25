@@ -12,7 +12,9 @@ function Select({ options, onChangeFunc, unit }) {
         onChange={(e) => onChangeFunc(e.target.value)}
       >
         {options.map((option) => (
-          <option value={option.value}>{option.label}</option>
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
         ))}
       </select>
     </div>

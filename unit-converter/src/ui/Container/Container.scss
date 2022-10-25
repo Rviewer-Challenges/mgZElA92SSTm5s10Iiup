@@ -2,6 +2,7 @@
 .nes-container.is-dark.container--unit-converter {
   background-color: #030b5b;
   margin: 0 10%;
+  border-width: 13px;
 }
 
 .container--select-input {
@@ -20,7 +21,7 @@
 @media (min-width: 1000px) {
   .nes-container.is-dark.container--unit-converter {
     width: 780px;
-    max-height: 452px;
+    max-height: 500px;
     margin: 0 4% 0 auto;
   }
   .container--measure-type {

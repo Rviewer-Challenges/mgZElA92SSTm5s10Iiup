@@ -13,8 +13,12 @@ function App() {
   const [selectOptions, setSelectOptions] = useState(tempOptions);
   const [measure, setMeasure] = useState('temperature');
 
-  const handleClickTempButton = () => setMeasure('temperature');
-  const handleClickLengthButton = () => setMeasure('length');
+  const handleClickTempButton = () => {
+    setMeasure('temperature');
+  };
+  const handleClickLengthButton = () => {
+    setMeasure('length');
+  };
 
   const handleClickUnitSwitch = () => {
     const newInputUnit = outputUnit;
@@ -48,8 +52,6 @@ function App() {
         temperatureConversion(outputUnit, inputValue, inputUnit).toString()
       );
     } else if (measure === 'length' && inputValue) {
-      // eslint-disable-next-line no-debugger
-      debugger;
       setOutputValue(
         lengthConversion(outputUnit, inputValue, inputUnit).toString()
       );
@@ -71,6 +73,7 @@ function App() {
       handleClickLengthButton={handleClickLengthButton}
       handleClickTempButton={handleClickTempButton}
       selectOptions={selectOptions}
+      measure={measure}
     />
   );
 }

@@ -19,6 +19,7 @@ function AppUI({
   handleClickTempButton,
   handleClickLengthButton,
   selectOptions,
+  measure,
 }) {
   return (
     <div className="app-ui">
@@ -28,6 +29,7 @@ function AppUI({
           <Button
             onClickFunc={handleClickTempButton}
             customClasses="nes-btn button--measure-type"
+            measure={measure}
           >
             <i className="nes-kirby" />
           </Button>
@@ -35,6 +37,7 @@ function AppUI({
           <Button
             onClickFunc={handleClickLengthButton}
             customClasses="nes-btn button--measure-type"
+            measure={measure}
           >
             <i className="nes-kirby" />
           </Button>
@@ -85,5 +88,6 @@ AppUI.propTypes = {
   handleClickLengthButton: PropTypes.func.isRequired,
   selectOptions: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string))
     .isRequired,
+  measure: PropTypes.string.isRequired,
 };
 export default AppUI;

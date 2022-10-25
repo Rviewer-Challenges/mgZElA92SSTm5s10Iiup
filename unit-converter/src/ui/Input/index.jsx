@@ -28,12 +28,13 @@ Input.defaultProps = {
   type: PropTypes.string,
   customClasses: null,
   disabled: null,
+  handlerOnChange: null,
 };
 Input.propTypes = {
   type: PropTypes.string,
   customClasses: PropTypes.string,
   inputValue: PropTypes.string.isRequired,
-  handlerOnChange: PropTypes.func.isRequired,
+  handlerOnChange: PropTypes.func,
   disabled: PropTypes.bool,
 };
 

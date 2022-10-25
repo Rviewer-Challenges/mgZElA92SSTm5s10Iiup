@@ -42,9 +42,17 @@
   top: 10%;
   left: 10%;
 }
+.button--switch:focus {
+  box-shadow: none;
+}
 
 .button--measure-type {
   margin-bottom: 2rem;
+}
+
+.button--measure-type-focus {
+  background-color: #9c9c9c;
+  box-shadow: 0 0 0 6px rgb(173 175 188 / 30%);
 }
 
 @media (min-width: 1000px) {
