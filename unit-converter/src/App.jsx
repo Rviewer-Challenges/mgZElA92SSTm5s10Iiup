@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { tempOptions, lengthOptions } from './utils/selectOptionsHelper';
-import { temperatureConversion } from './utils/temperatureHelpers';
-import { lengthConversion } from './utils/lengthHelper';
+import {
+  tempOptions,
+  lengthOptions,
+} from './application/measures/selectOptionsHelper';
+import { temperatureConversion } from './application/conversions/temperatureHelpers';
+import { lengthConversion } from './application/conversions/lengthHelper';
 
 import AppUI from './ui/AppUI';
 
@@ -18,6 +21,7 @@ function App() {
     setInputValue('');
     setOutputValue('');
   };
+
   const handleClickLengthButton = () => {
     setMeasure('length');
     setInputValue('');
@@ -27,17 +31,14 @@ function App() {
   const handleClickUnitSwitch = () => {
     const newInputUnit = outputUnit;
     const newOutputUnit = inputUnit;
-
     setInputUnit(newInputUnit);
     setOutputUnit(newOutputUnit);
-
     setInputValue('');
     setOutputValue('');
   };
 
   const handleInputChange = (e) => {
     if (e.target.value < 0 && measure === 'length') return;
-
     if (e.target.value < 0 && inputUnit === 'kelvin') return;
     if (e.target.value < -273.15 && inputUnit === 'celsius') return;
     if (e.target.value < -459.67 && inputUnit === 'fahrenheit') return;
@@ -69,7 +70,7 @@ function App() {
         lengthConversion(outputUnit, inputValue, inputUnit).toString()
       );
     }
-  }, [inputValue, inputUnit, outputUnit, measure]);
+  }, [inputValue, inputUnit, outputUnit]);
 
   return (
     <AppUI

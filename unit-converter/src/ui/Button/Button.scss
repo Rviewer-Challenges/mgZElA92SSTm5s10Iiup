@@ -48,11 +48,17 @@
 .button--measure-type {
   margin-bottom: 2rem;
   width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button--measure-type-focus {
   background-color: #9c9c9c;
   box-shadow: 0 0 0 6px rgb(173 175 188 / 30%);
+}
+.button--measure-type__icon {
+  width: 25px;
 }
 
 @media (min-width: 1000px) {

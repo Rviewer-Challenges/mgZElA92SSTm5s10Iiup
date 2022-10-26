@@ -6,6 +6,9 @@ import Select from '../Select';
 import Title from '../Title';
 import Input from '../Input';
 import Button from '../Button';
+import backgroundVideo from '../../assets/video/video-background.mp4';
+import gridIcon from '../../assets/images/pixel.png';
+import temperatureIcon from '../../assets/images/thermometer.png';
 
 function AppUI({
   inputValue,
@@ -23,6 +26,9 @@ function AppUI({
 }) {
   return (
     <div className="app-ui">
+      <video className="app-ui__video" autoPlay muted loop>
+        <source src={backgroundVideo} type="video/mp4" />
+      </video>
       <Container customClasses="is-dark with-title container--unit-converter nes-container">
         <Title text="Unit Converter" customClasses="title--unit-converter" />
         <Container customClasses="container--measure-type">
@@ -31,7 +37,12 @@ function AppUI({
             customClasses="nes-btn button--measure-type"
             measure={measure}
           >
-            Temperature
+            Temp
+            <img
+              className="button--measure-type__icon"
+              src={temperatureIcon}
+              alt="temperature"
+            />
           </Button>
 
           <Button
@@ -39,7 +50,12 @@ function AppUI({
             customClasses="nes-btn button--measure-type"
             measure={measure}
           >
-            Length
+            Lgth
+            <img
+              className="button--measure-type__icon"
+              src={gridIcon}
+              alt="length"
+            />
           </Button>
         </Container>
         <Container customClasses="container--operations">
