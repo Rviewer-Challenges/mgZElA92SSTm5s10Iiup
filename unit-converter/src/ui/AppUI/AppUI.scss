@@ -1,0 +1,21 @@
+.app-ui {
+  width: 100%;
+  min-height: 100vh;
+  // background-image: url(../assets//images/pixel-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 0;
+  position: relative;
+}
+.app-ui__video {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  top: 0;
+}
+
+@media (min-width: 1000px) {
+  .app-ui {
+    display: flex;
+  }
+}

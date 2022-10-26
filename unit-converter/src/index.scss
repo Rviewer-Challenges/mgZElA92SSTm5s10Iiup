@@ -1,0 +1,17 @@
+@import '../node_modules/nes.css/css/nes.css';
+@font-face {
+  font-family: 'Kongtext';
+  src: url('./assets/fonts/KongtextRegular.woff2') format('woff2'),
+    url('./assets/fonts/KongtextRegular.woff') format('woff'),
+    url('./assets/fonts/KongtextRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Kongtext';
+}
